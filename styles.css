@@ -1,3 +1,4 @@
+
 body {
     background-color: white;
   }
@@ -7,36 +8,69 @@ p {
   text-align: center;
   }
 .gameTitle {
+  position: absolute;
+  top: 5%;
+  left: 10%;
+  width: 200px;
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   font-size: 30px;
   background-color:#808080;
-  width: 200px;
   border-radius: 5px;
   padding: 15px 15px 15px 15px;
-  
+}
+.directions {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    width: 300px;
+    height: 55px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 15px;
+    background-color:#c9c9c9;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    padding: 15px 15px 15px 15px;
 }
 .playerX {
+  position: absolute;
+  top: 20%;
+  left: 18%;
+  height: 40px;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: left;
+  font-size: 20px;
   background-color: #ec1313;
   padding: 10px 10px 10px 50px;
-  font-size: 20px;
+  border-radius: 5px;
+  
 }
 .playerO {
+  position: absolute;
+  top: 20%;
+  left: 70%;
+  height: 40px;
   font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 20px;
   background-color: #1713ec;
   padding: 10px 10px 10px 50px;
-  font-size: 20px;
+  border-radius: 5px;
+  
 }
-  .gridBoard {
-    display: grid;
-    grid-template-columns: repeat(3, 200px);
-    grid-template-rows: repeat(3, 200px);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    /*grid-auto-rows: 210px;*/
-    background-color:white;
-    padding: 5px 5px 50px 50px;
+.gridBoard {
+  position: absolute;
+  top: 30%;
+  left: 20%;
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(3, 200px);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  background-color:white;
+  padding: 5px 5px 50px 50px;
   }
 
   .one {
