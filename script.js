@@ -3,34 +3,54 @@ const playerX = document.querySelector(".playerX")      //playerX
 const playerO = document.querySelector(".playerO")      //playerO
 const resetButton = document.querySelector(".resetButton")    //reset
 const gridBoard = document.querySelector(".gridBoard")  //gridBoard
-let playerUp = ''
 let gameActive = true
 
 const tokenX = "X"
 const tokenO = "O"
-let currentPlayer = tokenX
-const allSquares = Array.from(document.getElementsByClassName('square'))
+let currentToken = tokenX
+let playerUp = currentToken
+const allSquares = Array.from(document.getElementsByClassName('square')) //all squares array
 //console.log(allSquares)
-let gridSpaces = ['', '', '', '', '', '', '', '', '']
+let square = document.querySelectorAll('.square')  //all squares list
+//console.log(square)
+let gridSpaces = ['', '', '', '', '', '', '', '', '']  //all empty spaces array
+//console.log(gridSpaces)
 
-let square = document.querySelectorAll('.square')
-const squareClicked = (event) => {
-    alert("clicked")
+
+
+allSquares.forEach(square => {
+    square.addEventListener('click', squaresTaken, { once: true})
+})
+
+function squaresTaken(event) {
+    console.log("taken")
 }
-square.addEventListener('click', squareClicked)
+
+
+
+//= gridSpaces.every(square => square.click)
+
+//gridSpaces.forEach.addEventListener('click', squareTaken)
+
+
+
+
+
+
+
+
 
 
 /*--
 whoseTurn()
 function whoseTurn() {
-    let playerX = document.getElementByClassName("playerX")
-
-    if (playerX == true) {
-        playerXGo()
+    if playerUp = tokenX {
+        
     } else {
         playerOGo()
     }
 }
+/*--
 ----------------------GAME PLAY-----------------------------*/
 
 
