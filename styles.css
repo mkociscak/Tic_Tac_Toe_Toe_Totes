@@ -33,6 +33,12 @@ p {
     border-color: black;
     padding: 15px 15px 15px 15px;
 }
+.square {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 80px;
+  color: white;
+}
 .displayTurn {
   position: absolute;
   top: 17%;
@@ -86,6 +92,12 @@ outlineO div {
     background-color: blue;
     padding: 10px 10px 10px 10px;
     border-radius: 7px;
+}
+.tokenX {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 50px;
+  color:black;
 }
 .resetButton {
     position: absolute;
