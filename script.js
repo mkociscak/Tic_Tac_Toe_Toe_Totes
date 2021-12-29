@@ -2,21 +2,19 @@ const gameTitle = document.querySelector(".gameTitle")  //gameTitle
 const playerX = document.querySelector(".playerX")      //playerX
 const playerO = document.querySelector(".playerO")      //playerO
 const resetButton = document.querySelector(".resetButton")    //reset
-const gridBoard = document.getElementsByClassName(".gridBoard")  //gridBoard
+const gridBoard = document.getElementsByClassName("gridBoard")  //empty array of spaces
 const tokenX = "X"
 const tokenO = "O"
+let gameStatus = "Active"
+let moves = 0
 
-allSquares = Array.from(document.getElementsByClassName('square')) //all squares array
-    //console.log(allSquares)
-let square = document.getElementsByClassName('.square')  //all squares list
-    //console.log(square)
-   
-const gridSpaces = ['', '', '', '', '', '', '', '', '']  //all empty spaces array
-    //console.log(gridSpaces)
+allSquares = Array.from(document.querySelectorAll('.square')) //all squares array (9)
+    console.log(allSquares)
+let square = document.getElementsByClassName('square')  //all squares as HTML collection (9)
+    console.log(square)
 
-let xUp = true    //needs to switch back/forth 
-
-function spaceMarked() {
+let xUp = true    //needs to switch back/forth after square clicked
+function spaceMarked() {    
 if(xUp) {
    xUp = !xUp
    return 'X'
@@ -24,47 +22,46 @@ if(xUp) {
    xUp = !xUp
    return 'O'
 } } 
-let currentPlayer = spaceMarked()
-   
+ 
 function squaresTaken(event) {      //console.log("taken")
-    console.log(event.target.innerText)
-    event.target.innerText = spaceMarked()
+    console.log(event.target.innerText) //LOGS ID FROM SQUARE CLASS HTML in console
+    event.target.innerText = spaceMarked() //MARKS SPACES ON SCREEN/page
     }
 
 allSquares.forEach(square => {
     square.addEventListener('click', squaresTaken, { once: true})
 })
 
-const winConditionsO = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [6, 4, 2]
-]
+let gridSpaces = [null, null, null, null, null, null, null, null, null]  //all empty spaces array
+    console.log(gridSpaces[0])
 
-let gameStatus = "Active"
-function showWinner() {
-    console.log("winner")
-    gameStatus = "Game Over";
-  }
+//function chosenSpaceIndex(event) {
+    //console.log(event.target.innerText)  //should ==> gridSpaces
+    //parseInt(squaresTaken.target.innerText)
+    //innerText attached to variable
+    
+//const chosenBox =  gridBoard.target.innerText   ERROR HERE : UNCAUGHT TYPE ERROR CANNOT READ PROPERTIES OF INNERTEXT
+const chosenBox = 0    
+gridSpaces.splice(chosenBox, 1, "X")
+console.log(gridSpaces)
 
-if (
-    square[0] == square[1] &&
-    square[1] == square[2] &&
-    square[0] == currentPlayer
-  ) {
-    showWinner(0, 1, 2);
-  } else if (
-    square[3] == square[4] &&
+
+let currentPlayer = "X"
+
+function isWinner(currentPlayer) {
+    for (let moves = 0; moves > square.length; moves++) {
+    //console.log(moves)
+    } if (square[0] === currentPlayer && square[1] === currentPlayer && square[2] === currentPlayer) {
+    //console.log("winner")
+}}
+isWinner(currentPlayer)
+console.log(gridSpaces)
+
+/*if (square[3] == square[4] &&
     square[4] == square[5] &&
-    square[3] != ""
-  ) {
-    showWinner(3, 4, 5);
-  } else if (
+    square[3] != "") 
+    {showWinner(3, 4, 5)}
+if (
     square[6] == square[7] &&
     square[7] == square[8] &&
     square[6] != ""
@@ -101,6 +98,33 @@ if (
   ) {
     showWinner(2, 4, 6);
   }
+}
+function showWinner() {
+    console.log("winner")
+    gameStatus = "Game Over";
+  }
+isWinner()
+function resetBoard() {
+    let 
+}
+
+resetButton.addEventListener('click', resetBoard)
+------------------------------------------------------------------END
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -108,6 +132,22 @@ if (
 
 /*
 function checkWinner() {
+
+    const winConditionsO = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [6, 4, 2]
+]
+
+    //  //datatype
+//console.log(chosenSpaceIndex[0])
+//gridSpaces.splice(innerText, 1, "X")
+//console.log(gridSpaces)
 
 let playerXSpaces = new Array();
 let playerOSpaces = new Array();
@@ -204,10 +244,6 @@ for (let i = 0; i < winConditions.length; i++) {
 }
 ------------
 
-function resetBoard() {
-    let 
-}
 
-resetButton.addEventListener('click', resetBoard)
 
 */
