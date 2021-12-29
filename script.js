@@ -1,20 +1,22 @@
 
+function startGame() {
 const gameTitleLogo = document.querySelector(".gameTitle")  //gameTitle
+const gridBoard = document.getElementsByClassName("gridBoard")//empty array spaces
 const resetButton = document.querySelector(".resetButton")    //reset
-const gridBoard = document.getElementsByClassName("gridBoard")  //empty array of spaces
 const tokenX = "X"
 const tokenO = "O"
 let gameStatus  
 let moves = 0
-let xUp = true
+let currentToken = true   //xUp
 
-allSquares = Array.from(document.querySelectorAll('.square')) //all squares array (9)
-    console.log(allSquares)
-let square = document.getElementsByClassName('square')  //all squares as HTML collection (9)
-    console.log(square)
+allSquares = Array.from(document.querySelectorAll('.square')) //all squares array (9)console.log(allSquares)
+let square = document.getElementsByClassName('square')  //all squares as HTML collection (9)console.log(square)
+
+let gridSpaces = [null, null, null, null, null, null, null, null, null]  //all empty spaces array
+    console.log(gridSpaces)
 
 //needs to switch back/forth after square clicked
-function spaceMarked() {   //array[ ] =spaceMarked
+let spaceMarked() {   //array[ ] =spaceMarked
     if(xUp) {
        xUp = !xUp
        return(tokenX)
@@ -55,8 +57,7 @@ function resetBoard() {
     }) 
 }
 //----------TO CHECK GAME OUTCOME
-let gridSpaces = [null, null, null, null, null, null, null, null, null]  //all empty spaces array
-    console.log(gridSpaces)
+
     
 //const chosenBox =  gridBoard.innerText   //ERROR HERE : UNCAUGHT TYPE ERROR CANNOT READ PROPERTIES OF INNERTEXT.target
 //const chosenBox = square['']    //index
