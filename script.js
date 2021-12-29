@@ -6,31 +6,42 @@ const tokenX = "X"
 const tokenO = "O"
 let gameStatus  
 let moves = 0
+let xUp = true
 
 allSquares = Array.from(document.querySelectorAll('.square')) //all squares array (9)
     console.log(allSquares)
 let square = document.getElementsByClassName('square')  //all squares as HTML collection (9)
     console.log(square)
 
-let xUp = true    //needs to switch back/forth after square clicked
-function spaceMarked() {    
-if(xUp) {
-   xUp = !xUp
-   return(tokenX)
-} else {
-   xUp = !xUp
-   return (tokenO)
-} } 
- 
+//needs to switch back/forth after square clicked
+function spaceMarked() {   //array[ ] =spaceMarked
+    if(xUp) {
+       xUp = !xUp
+       return(tokenX)
+    } else {
+       xUp = !xUp
+       return(tokenO) //puts o in square
+    } } 
+function updateGame(index) {
+        gridSpaces[index] = xUp
+    }
+const playerClick = (square, index) => {
+    if(spaceMarked(square) && gameStart) {
+        square.innerHTML = xUp;
+        updateGame(index);
+        isWinner(xUp);
+        spaceMarked(xUp);
+        }
+}
+    
 function squaresTaken(event) {      
     console.log(event.target.innerText) //LOGS ID FROM SQUARE CLASS HTML in console
     event.target.innerText = spaceMarked() //MARKS SPACES ON PAGE/SCREEN
+    
     }
-
 allSquares.forEach(square => {
     square.addEventListener('click', squaresTaken, {once: true})
 })
-
 //resetBoard
 resetButton.addEventListener('click', resetBoard)   //resetBoard = gameStart
 
@@ -41,36 +52,48 @@ function resetBoard() {
         square.innerText = ''
         square.removeEventListener('click', spaceMarked)
         square.addEventListener('click', spaceMarked, {once: true})
-    })
-    
+    }) 
 }
-
 //----------TO CHECK GAME OUTCOME
 let gridSpaces = [null, null, null, null, null, null, null, null, null]  //all empty spaces array
-    console.log(gridSpaces[0])
+    console.log(gridSpaces)
     
-//const chosenBox =  gridBoard.target.innerText   ERROR HERE : UNCAUGHT TYPE ERROR CANNOT READ PROPERTIES OF INNERTEXT
-const chosenBox = 0    //index
-gridSpaces.splice(chosenBox, 1, "X")
+//const chosenBox =  gridBoard.innerText   //ERROR HERE : UNCAUGHT TYPE ERROR CANNOT READ PROPERTIES OF INNERTEXT.target
+//const chosenBox = square['']    //index
+gridSpaces.splice([], 1, "X")
+//gridSpaces.push(xUp)
 console.log(gridSpaces)
-
-
 let currentPlayer = "X"
 
 function isWinner(currentPlayer) {
     for (let moves = 0; moves > square.length; moves++) {
     //console.log(moves)
-    } 
-    if (square[0].innerText === currentPlayer && square[1] === currentPlayer && square[2] === currentPlayer) {
-        
+        if (square[0].innerText === currentPlayer && square[1] === currentPlayer && square[2] === currentPlayer) {
+        //return("isWinner")
         console.log("isWinner")
-    }
-    console.log(square[0].innerText)
+    }}
+    //console.log(square[0].innerText)
 }
 isWinner(currentPlayer)
 
+/*
+1. const playerClick = (square, index) => {
+    if (spaceMarked(square)&& gameStatus) {
+        square.innerText = gridSpaces
+        currentPlayer
+        (index);
+        isWinner(currentPlayer)
+        spaceMarked(currentPlayer)
+        console.log(gridSpaces)
+    }
 
-/*if (square[3] == square[4] &&
+
+
+
+
+
+//function isDraw()square[0].innerText !== null && //chosenBox, 1, "X"
+/*if (square[3].innerText === currentPlayer && square[4] &&
     square[4] == square[5] &&
     square[3] != "") 
     {showWinner(3, 4, 5)}
@@ -113,7 +136,7 @@ if (
   }}
   */
 
-function showWinner() {
+/*function showWinner() {
     console.log("winner")
     gameStatus = "Game Over";
   }
