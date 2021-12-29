@@ -1,11 +1,10 @@
-const gameTitle = document.querySelector(".gameTitle")  //gameTitle
-const playerX = document.querySelector(".playerX")      //playerX
-const playerO = document.querySelector(".playerO")      //playerO
+
+const gameTitleLogo = document.querySelector(".gameTitle")  //gameTitle
 const resetButton = document.querySelector(".resetButton")    //reset
 const gridBoard = document.getElementsByClassName("gridBoard")  //empty array of spaces
 const tokenX = "X"
 const tokenO = "O"
-let gameStatus = "Active"
+let gameStatus  
 let moves = 0
 
 allSquares = Array.from(document.querySelectorAll('.square')) //all squares array (9)
@@ -17,31 +16,41 @@ let xUp = true    //needs to switch back/forth after square clicked
 function spaceMarked() {    
 if(xUp) {
    xUp = !xUp
-   return 'X'
+   return(tokenX)
 } else {
    xUp = !xUp
-   return 'O'
+   return (tokenO)
 } } 
  
-function squaresTaken(event) {      //console.log("taken")
+function squaresTaken(event) {      
     console.log(event.target.innerText) //LOGS ID FROM SQUARE CLASS HTML in console
-    event.target.innerText = spaceMarked() //MARKS SPACES ON SCREEN/page
+    event.target.innerText = spaceMarked() //MARKS SPACES ON PAGE/SCREEN
     }
 
 allSquares.forEach(square => {
-    square.addEventListener('click', squaresTaken, { once: true})
+    square.addEventListener('click', squaresTaken, {once: true})
 })
 
+//resetBoard
+resetButton.addEventListener('click', resetBoard)   //resetBoard = gameStart
+
+function resetBoard() {
+    gameStatus = true
+    allSquares.forEach(square => {
+        square.innerText = ''
+        square.innerText = ''
+        square.removeEventListener('click', spaceMarked)
+        square.addEventListener('click', spaceMarked, {once: true})
+    })
+    
+}
+
+//----------TO CHECK GAME OUTCOME
 let gridSpaces = [null, null, null, null, null, null, null, null, null]  //all empty spaces array
     console.log(gridSpaces[0])
-
-//function chosenSpaceIndex(event) {
-    //console.log(event.target.innerText)  //should ==> gridSpaces
-    //parseInt(squaresTaken.target.innerText)
-    //innerText attached to variable
     
 //const chosenBox =  gridBoard.target.innerText   ERROR HERE : UNCAUGHT TYPE ERROR CANNOT READ PROPERTIES OF INNERTEXT
-const chosenBox = 0    
+const chosenBox = 0    //index
 gridSpaces.splice(chosenBox, 1, "X")
 console.log(gridSpaces)
 
@@ -51,11 +60,15 @@ let currentPlayer = "X"
 function isWinner(currentPlayer) {
     for (let moves = 0; moves > square.length; moves++) {
     //console.log(moves)
-    } if (square[0] === currentPlayer && square[1] === currentPlayer && square[2] === currentPlayer) {
-    //console.log("winner")
-}}
+    } 
+    if (square[0].innerText === currentPlayer && square[1] === currentPlayer && square[2] === currentPlayer) {
+        
+        console.log("isWinner")
+    }
+    console.log(square[0].innerText)
+}
 isWinner(currentPlayer)
-console.log(gridSpaces)
+
 
 /*if (square[3] == square[4] &&
     square[4] == square[5] &&
@@ -97,19 +110,27 @@ if (
     square[2] != ""
   ) {
     showWinner(2, 4, 6);
-  }
-}
+  }}
+  */
+
 function showWinner() {
     console.log("winner")
     gameStatus = "Game Over";
   }
 isWinner()
-function resetBoard() {
-    let 
+
+
+/*function reset(){
+   for(i = 1; i < 9; i++){
+      document.getElementById(i.toString()).value = "";
+   }
 }
 
-resetButton.addEventListener('click', resetBoard)
-------------------------------------------------------------------END
+
+
+
+
+/*------------------------------------------------------------------END
 
 
 
@@ -126,7 +147,8 @@ resetButton.addEventListener('click', resetBoard)
 
 
 
-
+//const playerX = document.querySelector(".playerX")      //playerX
+//const playerO = document.querySelector(".playerO")      //playerO
 
 
 
@@ -243,7 +265,11 @@ for (let i = 0; i < winConditions.length; i++) {
     }
 }
 ------------
-
+//gridSpaces
+//function chosenSpaceIndex(event) {
+    //console.log(event.target.innerText)  //should ==> gridSpaces
+    //parseInt(squaresTaken.target.innerText)
+    //innerText attached to variable
 
 
 */

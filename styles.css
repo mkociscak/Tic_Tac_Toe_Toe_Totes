@@ -1,3 +1,10 @@
+
+span {
+  width: 1300px;
+}
+.displayTurn span {
+  width: inherit;
+}
 body {
     background-color: white;
   }
@@ -6,7 +13,7 @@ p {
   font-size: 20px;
   text-align: center;
   }
-.gameTitle {
+.gameTitleLogo {
   position: absolute;
   top: 7%;
   left: 10%;
@@ -22,8 +29,8 @@ p {
     position: absolute;
     top: 5%;
     left: 65%;
-    width: 300px;
     height: 55px;
+    width: 300px;
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
     font-size: 15px;
@@ -56,7 +63,7 @@ outlineX {
   left: 16%;
   height: 55px;
   width: 190px;
-  border:5px solid black;
+  border:5px solid #dadada;
   padding:10px;
   background-color: none;
   border-radius: 8px;
@@ -115,7 +122,7 @@ outlineO div {
 }
 .resetButton:hover {
     cursor:auto;
-    transform: translateX(+2px);
+    transform: scale(1.5);
 }
 .gridBoard {
   position: absolute;
@@ -176,3 +183,34 @@ outlineO div {
     padding: 10px 10px 10px 10px;
     border-radius: 5px;
     }
+  
+  .isWinner {
+    display: none;
+
+  }
+   /* -----media queries-------*/ /*
+  
+   @media only screen and (min-width: 769px){
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column-gap: 20px;
+      grid-row-gap: 20px;
+      grid-auto-rows: 250px;
+      background-color:white;
+      padding: 50px 50px 50px 50px;}
+    }
+
+    @media only screen and (min-width: 1282px){
+      .grid {
+        max-width: 1900px;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-column-gap: 20px;
+        grid-row-gap: 20px;
+        grid-auto-rows: 250px;
+        background-color:white;
+        padding: 50px 50px 50px 50px;}
+    }
+
+    ----*/
