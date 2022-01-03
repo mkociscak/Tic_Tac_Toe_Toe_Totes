@@ -40,18 +40,14 @@ p {
     border-color: black;
     padding: 15px 15px 15px 15px;
 }
-.square {
-  font-family: Arial, Helvetica, sans-serif;
-  text-align: center;
-  font-size: 100px;
-  color: white;
-}
+
 .displayTurn {
-  position: absolute;
-  top: 17%;
-  left: 9%;
+  position: relative;
+  top: 15vh;
+  left: 10%;
+  right: 10%;
   height: 90px;
-  width: 835px;
+  width: 75vw;
   border:2px solid black;
   padding:10px;
   background-color: none;
@@ -82,7 +78,7 @@ outlineX div {
 outlineO {
   position: absolute;
   top: 18%;
-  left: 65%;
+  left: 60%;
   height: 55px;
   width: 190px;
   border:5px solid #dadada;
@@ -108,8 +104,8 @@ outlineO div {
 }
 .resetButton {
     position: absolute;
-    top: 62%;
-    left: 45%;
+    top: 88vh;
+    left: 43vw;
     height: 40px;
     width: 80px;
     font-family: Arial, Helvetica, sans-serif;
@@ -127,10 +123,10 @@ outlineO div {
 .gridBoard {
   position: absolute;
   top: 27%;
-  left: 18%;
+  left: 20vw;
   display: grid;
-  min-width: 600px;
-  min-height: 600px;
+  min-width: 50vw;
+  min-height: 55vh;
   grid-template-columns: repeat(3, 33.33%);
   grid-template-rows: repeat(3, 33.33%);
   grid-column-gap: 10px;
@@ -141,7 +137,12 @@ outlineO div {
   }
 .square {
     background-color:#c9c9c9; 
-}
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
+      font-size: 100px;
+      color: white;
+    }
+
   #zero {
     background-color:#c9c9c9;
   }
