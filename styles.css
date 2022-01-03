@@ -1,10 +1,5 @@
 
-span {
-  width: 1300px;
-}
-.displayTurn span {
-  width: inherit;
-}
+
 body {
     background-color: white;
   }
@@ -139,79 +134,49 @@ outlineO div {
     background-color:#c9c9c9; 
       font-family: Arial, Helvetica, sans-serif;
       text-align: center;
-      font-size: 100px;
-      color: white;
+      font-size: 150px;
+      color: black;
     }
 
-  #zero {
-    background-color:#c9c9c9;
+  #zero:hover {
+    transform: scale(1.05);
+    background-color:#808080;
+  } 
+  #one:hover {
+    transform: scale(1.05);
+    background-color:#808080;
   }
-  #one {
-    background-color:#c9c9c9;
+  #two:hover {
+    transform: scale(1.05);
+    background-color:#808080;
   }
-  #two {
-    background-color:#c9c9c9;
+  #three:hover {
+    transform: scale(1.05);
+    background-color:#808080;
   }
-  #three {
-    background-color: #c9c9c9 ;
+  #four:hover {
+    transform: scale(1.05);
+    background-color:#808080;
   }
-  #four {
-    background-color:#c9c9c9;
+  #five:hover {
+    transform: scale(1.05);
+    background-color:#808080;
   }
-  #five {
-    background-color:#c9c9c9 ;
+  #six:hover {
+    transform: scale(1.05);
+    background-color:#808080;
   }
-  #six {
-    background-color:#c9c9c9;
+  #seven:hover {
+    transform: scale(1.05);
+    background-color:#808080;
   }
-  #seven {
-    background-color:#c9c9c9 ;
-  }
-  #eight {
-    background-color:#c9c9c9;
+  #eight:hover {
+    transform: scale(1.05);
+    background-color:#808080;
   }
 
-  .highlightX {
-    position: absolute;
-    top: 16%;
-    left: 16%;
-    height: 80px;
-    width: 148px;
-    border-style: solid;
-    border-width: 10px;
-    border-color: #080808;
-    background-color: white;
-    padding: 10px 10px 10px 10px;
-    border-radius: 5px;
-    }
-  
   .isWinner {
     display: none;
 
   }
-   /* -----media queries-------*/ /*
-  
-   @media only screen and (min-width: 769px){
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-column-gap: 20px;
-      grid-row-gap: 20px;
-      grid-auto-rows: 250px;
-      background-color:white;
-      padding: 50px 50px 50px 50px;}
-    }
-
-    @media only screen and (min-width: 1282px){
-      .grid {
-        max-width: 1900px;
-        display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        grid-column-gap: 20px;
-        grid-row-gap: 20px;
-        grid-auto-rows: 250px;
-        background-color:white;
-        padding: 50px 50px 50px 50px;}
-    }
-
-    ----*/
+   
